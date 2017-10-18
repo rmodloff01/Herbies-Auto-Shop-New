@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cost_of_labor: 9.99
+  car_vin: MyString
+  cust: one
+  emp: one
+  inv_desc: MyString
+  prob_desc: MyString
+  eng_code: MyString
+  inv_date: 2017-10-17
+  tot_cost: 9.99
+
+two:
+  cost_of_labor: 9.99
+  car_vin: MyString
+  cust: two
+  emp: two
+  inv_desc: MyString
+  prob_desc: MyString
+  eng_code: MyString
+  inv_date: 2017-10-17
+  tot_cost: 9.99

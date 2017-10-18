@@ -1,0 +1,27 @@
+<%= form_with(model: included_part, local: true) do |form| %>
+  <% if included_part.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(included_part.errors.count, "error") %> prohibited this included_part from being saved:</h2>
+
+      <ul>
+      <% included_part.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :part_id %>
+    <%= form.text_field :part_id, id: :included_part_part_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inv_id %>
+    <%= form.text_field :inv_id, id: :included_part_inv_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

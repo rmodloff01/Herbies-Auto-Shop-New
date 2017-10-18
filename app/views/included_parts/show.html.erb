@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Part:</strong>
+  <%= @included_part.part %>
+</p>
+
+<p>
+  <strong>Inv:</strong>
+  <%= @included_part.inv %>
+</p>
+
+<%= link_to 'Edit', edit_included_part_path(@included_part) %> |
+<%= link_to 'Back', included_parts_path %>

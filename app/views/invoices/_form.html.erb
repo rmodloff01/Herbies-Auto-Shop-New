@@ -1,0 +1,62 @@
+<%= form_with(model: invoice, local: true) do |form| %>
+  <% if invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+      <% invoice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cost_of_labor %>
+    <%= form.text_field :cost_of_labor, id: :invoice_cost_of_labor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :car_vin %>
+    <%= form.text_field :car_vin, id: :invoice_car_vin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cust_id %>
+    <%= form.text_field :cust_id, id: :invoice_cust_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emp_id %>
+    <%= form.text_field :emp_id, id: :invoice_emp_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inv_desc %>
+    <%= form.text_field :inv_desc, id: :invoice_inv_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prob_desc %>
+    <%= form.text_field :prob_desc, id: :invoice_prob_desc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eng_code %>
+    <%= form.text_field :eng_code, id: :invoice_eng_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :inv_date %>
+    <%= form.date_select :inv_date, id: :invoice_inv_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tot_cost %>
+    <%= form.text_field :tot_cost, id: :invoice_tot_cost %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

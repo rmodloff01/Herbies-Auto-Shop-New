@@ -1,0 +1,42 @@
+<%= form_with(model: part, local: true) do |form| %>
+  <% if part.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(part.errors.count, "error") %> prohibited this part from being saved:</h2>
+
+      <ul>
+      <% part.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :part_id %>
+    <%= form.text_field :part_id, id: :part_part_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :part_name %>
+    <%= form.text_field :part_name, id: :part_part_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :part_cost %>
+    <%= form.text_field :part_cost, id: :part_part_cost %>
+  </div>
+
+  <div class="field">
+    <%= form.label :part_num_in_inventory %>
+    <%= form.text_field :part_num_in_inventory, id: :part_part_num_in_inventory %>
+  </div>
+
+  <div class="field">
+    <%= form.label :supp_id %>
+    <%= form.text_field :supp_id, id: :part_supp_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

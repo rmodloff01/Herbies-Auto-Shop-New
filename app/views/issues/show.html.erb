@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cust:</strong>
+  <%= @issue.cust %>
+</p>
+
+<p>
+  <strong>Car vin:</strong>
+  <%= @issue.car_vin %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @issue.code %>
+</p>
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>

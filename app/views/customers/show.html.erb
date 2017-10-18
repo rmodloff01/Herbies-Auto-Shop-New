@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cust fname:</strong>
+  <%= @customer.cust_fname %>
+</p>
+
+<p>
+  <strong>Cust lname:</strong>
+  <%= @customer.cust_lname %>
+</p>
+
+<p>
+  <strong>Cust phone:</strong>
+  <%= @customer.cust_phone %>
+</p>
+
+<p>
+  <strong>Cust addr:</strong>
+  <%= @customer.cust_addr %>
+</p>
+
+<p>
+  <strong>Cust date:</strong>
+  <%= @customer.cust_date %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Home', home_index_path %> |
+<%= link_to 'Add Car', new_car_path %>
