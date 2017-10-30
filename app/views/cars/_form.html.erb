@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
     <%= form.label :car_vin %>
     <%= form.text_field :car_vin, id: :car_car_vin %>
@@ -32,8 +32,9 @@
   </div>
 
   <div class="field">
+    <% id = params[:cust_id] %>
     <%= form.label :cust_id %>
-    <%= form.text_field :cust_id, id: :car_cust_id %>
+    <%= form.text_field :cust_id, id: :car_cust_id, value: id %>
   </div>
 
   <div class="field">

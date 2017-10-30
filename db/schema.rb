@@ -36,9 +36,8 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "included_parts", primary_key: ["part_id", "inv_id"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "part_id", limit: 20, null: false
+    t.integer "part_id", null: false
     t.integer "inv_id", null: false
-    t.index ["inv_id"], name: "inv_id_idx"
   end
 
   create_table "invoices", primary_key: "inv_id", id: :integer, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -56,6 +55,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.index ["emp_id"], name: "emp_id_idx"
   end
 
+  create_table "issues", primary_key: "issue_id", id: :integer, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "cust_id", limit: 8, null: false
+    t.string "car_vin", limit: 15, null: false
+    t.string "code", limit: 20
+  end
+
   create_table "parts", primary_key: ["part_id", "supp_id"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "part_id", limit: 20, null: false
     t.string "part_name", limit: 20, null: false
@@ -71,8 +76,6 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   add_foreign_key "cars", "customers", column: "cust_id", primary_key: "cust_id", name: "cust_id", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "included_parts", "invoices", column: "inv_id", primary_key: "inv_id", name: "inv_id", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "included_parts", "parts", primary_key: "part_id", name: "part_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "invoices", "cars", column: "car_vin", primary_key: "car_vin", name: "car", on_update: :cascade, on_delete: :cascade
   add_foreign_key "invoices", "customers", column: "cust_id", primary_key: "cust_id", name: "cust", on_update: :cascade, on_delete: :cascade
   add_foreign_key "invoices", "employees", column: "emp_id", primary_key: "emp_id", name: "emp", on_update: :cascade, on_delete: :cascade

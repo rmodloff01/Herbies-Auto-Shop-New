@@ -12,11 +12,11 @@ th, td{
   <thead>
     <tr>
       <th>Cust ID</th>
-      <th>Cust fname</th>
-      <th>Cust lname</th>
-      <th>Cust phone</th>
-      <th>Cust addr</th>
-      <th>Cust date</th>
+      <th>Cust First Name</th>
+      <th>Cust Last Name</th>
+      <th>Cust Phone Number</th>
+      <th>Cust Address</th>
+      <th>Cust Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -33,6 +33,8 @@ th, td{
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'New Car', new_car_path(customer, :cust_id => customer.cust_id) %></td>
+        <td><%= link_to 'Show Cars', showcar_customer_path(customer) %> </td> 
       </tr>
     <% end %>
   </tbody>

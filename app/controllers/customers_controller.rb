@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :showcar]
 
   # GET /customers
   # GET /customers.json
@@ -11,7 +11,10 @@ class CustomersController < ApplicationController
   # GET /customers/1.json
   def show
   end
-
+  # GET /customers/1/showcar
+  def showcar
+  end
+  
   # GET /customers/new
   def new
     @customer = Customer.new

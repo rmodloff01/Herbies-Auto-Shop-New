@@ -52,3 +52,4 @@ gem 'twitter-bootstrap-rails'
 gem 'schema_to_scaffold'
 
 # look into clerance gem
+

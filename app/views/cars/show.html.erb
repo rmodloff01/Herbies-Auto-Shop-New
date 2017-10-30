@@ -24,6 +24,6 @@
   <strong>License plate:</strong>
   <%= @car.license_plate %>
 </p>
-
+<% @customer = Customer.find(@car.cust_id) %>
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Back', showcar_customer_path(@customer) %>
