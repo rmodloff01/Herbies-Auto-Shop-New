@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:show, :edit, :update, :destroy]
+  before_action :set_car, only: [:showinvoice, :show, :edit, :update, :destroy]
 
   # GET /cars
   # GET /cars.json
@@ -21,6 +21,8 @@ class CarsController < ApplicationController
   def edit
   end
 
+  def showinvoice
+  end
   # POST /cars
   # POST /cars.json
   def create

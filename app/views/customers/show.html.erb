@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Cust ID</strong>
+  <%= @customer.cust_id %>
+</p>
+
+<p>
   <strong>Cust fname:</strong>
   <%= @customer.cust_fname %>
 </p>
@@ -27,4 +32,4 @@
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Home', home_index_path %> |
-<%= link_to 'Add Car', new_car_path %>
+<%= link_to 'Add Car', new_car_path(@customer, :cust_id => @customer.cust_id) %>

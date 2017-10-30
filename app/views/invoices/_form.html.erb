@@ -11,48 +11,55 @@
     </div>
   <% end %>
 
+   <div class="field">
+    <%= form.label 'Invoice ID' %>
+    <%= form.text_field :inv_id, id: :inv_id %>
+  </div>
+
   <div class="field">
-    <%= form.label :cost_of_labor %>
+    <%= form.label 'Cost Of Labor' %>
     <%= form.text_field :cost_of_labor, id: :invoice_cost_of_labor %>
   </div>
 
   <div class="field">
-    <%= form.label :car_vin %>
-    <%= form.text_field :car_vin, id: :invoice_car_vin %>
+    <%= form.label 'VIN' %>
+    <% vin = params[:car_vin] %>
+    <%= form.text_field :car_vin, id: :invoice_car_vin, value: vin %>
   </div>
 
   <div class="field">
-    <%= form.label :cust_id %>
-    <%= form.text_field :cust_id, id: :invoice_cust_id %>
+    <%= form.label 'Customer ID' %>
+    <% id = params[:cust_id] %>
+    <%= form.text_field :cust_id, id: :invoice_cust_id, value: id %>
   </div>
 
   <div class="field">
-    <%= form.label :emp_id %>
+    <%= form.label 'Employee ID' %>
     <%= form.text_field :emp_id, id: :invoice_emp_id %>
   </div>
 
   <div class="field">
-    <%= form.label :inv_desc %>
+    <%= form.label 'Invoice Description' %>
     <%= form.text_field :inv_desc, id: :invoice_inv_desc %>
   </div>
 
   <div class="field">
-    <%= form.label :prob_desc %>
+    <%= form.label 'Problem Description' %>
     <%= form.text_field :prob_desc, id: :invoice_prob_desc %>
   </div>
 
   <div class="field">
-    <%= form.label :eng_code %>
+    <%= form.label 'Engine Code' %>
     <%= form.text_field :eng_code, id: :invoice_eng_code %>
   </div>
 
   <div class="field">
-    <%= form.label :inv_date %>
+    <%= form.label 'Invoice Date' %>
     <%= form.date_select :inv_date, id: :invoice_inv_date %>
   </div>
 
   <div class="field">
-    <%= form.label :tot_cost %>
+    <%= form.label 'Total Cost' %>
     <%= form.text_field :tot_cost, id: :invoice_tot_cost %>
   </div>
 

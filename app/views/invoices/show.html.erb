@@ -12,12 +12,12 @@
 
 <p>
   <strong>Cust:</strong>
-  <%= @invoice.cust %>
+  <%= @invoice.cust_id %>
 </p>
 
 <p>
   <strong>Emp:</strong>
-  <%= @invoice.emp %>
+  <%= @invoice.emp_id %>
 </p>
 
 <p>
@@ -44,6 +44,6 @@
   <strong>Tot cost:</strong>
   <%= @invoice.tot_cost %>
 </p>
-
+<% @customer = Customer.find(@invoice.cust_id) %>
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+<%= link_to 'Back', showcar_customer_path(@customer) %>

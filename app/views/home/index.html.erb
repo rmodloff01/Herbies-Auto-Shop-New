@@ -5,3 +5,11 @@
 <%= link_to 'New Customer', new_customer_path %>
 <br>
 <%= link_to 'New Employee', new_employee_path %>
+
+<%customer = Customer.find(2) %>
+
+<% belongstocust = Car.where(cust_id: customer.cust_id) %>
+<% belongstocust.each do |car| %>
+	<%= car.car_model %>
+	<br>
+<% end %>

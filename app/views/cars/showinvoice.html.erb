@@ -25,6 +25,7 @@ th, td{
   </thead>
 
   <tbody>
+  	<% @invoices = Invoice.where(car_vin: @car.car_vin) %>
     <% @invoices.each do |invoice| %>
       <tr>
         <td><%= invoice.cost_of_labor %></td>
@@ -37,7 +38,7 @@ th, td{
         <td><%= invoice.inv_date %></td>
         <td><%= invoice.tot_cost %></td>
         <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+        <td><%= link_to 'Edit', edit_invoice_path(invoice, cust_id: invoice.cust_id, car_vin: invoice.car_vin) %></td>
         <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -45,5 +46,5 @@ th, td{
 </table>
 
 <br>
-
-<%= link_to 'New Invoice', new_invoice_path %>
+<% @customer = Customer.find(@car.cust_id) %>
+<%= link_to 'Back', showcar_customer_path(@customer) %>

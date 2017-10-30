@@ -3,4 +3,6 @@
 <%= render 'form', invoice: @invoice %>
 
 <%= link_to 'Show', @invoice %> |
-<%= link_to 'Back', invoices_path %>
+<% cust = params[:cust_id] %>
+<%customer = Customer.find(cust) %>
+<%= link_to 'Back', showcar_customer_path(customer) %>
