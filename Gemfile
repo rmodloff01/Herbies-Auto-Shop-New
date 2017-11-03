@@ -50,6 +50,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'twitter-bootstrap-rails'
 gem 'schema_to_scaffold'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'coffee-script-source', '1.8.0'
 
 # look into clerance gem
-

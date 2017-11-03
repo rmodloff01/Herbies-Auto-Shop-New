@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :supp_name %>
+  <div class="form-group">
+    <%= form.label :supp_name, "Name", class: "col-md-2 control-label" %>
     <%= form.text_field :supp_name, id: :supplier_supp_name %>
   </div>
 
-  <div class="field">
-    <%= form.label :supp_address %>
+  <div class="form-group">
+    <%= form.label :supp_address, 'Address', class: "col-md-2 control-label"%>
     <%= form.text_field :supp_address, id: :supplier_supp_address %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: "btn btn-primary col-md-2" %>
   </div>
 <% end %>

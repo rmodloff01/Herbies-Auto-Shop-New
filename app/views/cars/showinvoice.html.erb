@@ -6,20 +6,20 @@ th, td{
 
 <p id="notice"><%= notice %></p>
 
-<h1>Invoices</h1>
+<h1 style="text-align:center">Invoices</h1>
 
-<table>
+<table  class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>Cost of labor</th>
-      <th>Car vin</th>
+      <th>Car VIN</th>
+      <th>Cost of Labor</th>
       <th>Customer ID</th>
       <th>Employee ID</th>
-      <th>Invoice description</th>
-      <th>Problem description</th>
-      <th>Engine code</th>
-      <th>Invoice date</th>
-      <th>Total cost</th>
+      <th>Work Done</th>
+      <th>Problem Description</th>
+      <th>Engine Code</th>
+      <th>Invoice Date</th>
+      <th>Total Cost</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -28,8 +28,8 @@ th, td{
   	<% @invoices = Invoice.where(car_vin: @car.car_vin) %>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.cost_of_labor %></td>
         <td><%= invoice.car_vin %></td>
+        <td><%= invoice.cost_of_labor %></td>
         <td><%= invoice.cust_id %></td>
         <td><%= invoice.emp_id %></td>
         <td><%= invoice.inv_desc %></td>
@@ -37,7 +37,6 @@ th, td{
         <td><%= invoice.eng_code %></td>
         <td><%= invoice.inv_date %></td>
         <td><%= invoice.tot_cost %></td>
-        <td><%= link_to 'Show', invoice %></td>
         <td><%= link_to 'Edit', edit_invoice_path(invoice, cust_id: invoice.cust_id, car_vin: invoice.car_vin) %></td>
         <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -47,4 +46,4 @@ th, td{
 
 <br>
 <% @customer = Customer.find(@car.cust_id) %>
-<%= link_to 'Back', showcar_customer_path(@customer) %>
+<%= link_to 'Back', showcar_customer_path(@customer), class: "btn btn-primary" %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
   resources :suppliers
   resources :parts_includeds
   resources :issues
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   resources :employees
   resources :cars
   resources :customers
-  resources :home 
+  resources :home
   resources :customers do
   member do
     get :showcar

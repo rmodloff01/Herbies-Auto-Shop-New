@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Suppliers</h1>
+<h1 style="text-align:center">Suppliers</h1>
 
-<table>
-  <thead>
+<table  class="table table-striped table-bordered">
+  <thead class="thead-inverse">
     <tr>
-      <th>Supp name</th>
-      <th>Supp address</th>
+      <th>Name</th>
+      <th>Address</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,7 +16,6 @@
       <tr>
         <td><%= supplier.supp_name %></td>
         <td><%= supplier.supp_address %></td>
-        <td><%= link_to 'Show', supplier %></td>
         <td><%= link_to 'Edit', edit_supplier_path(supplier) %></td>
         <td><%= link_to 'Destroy', supplier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Supplier', new_supplier_path %>
+<%= link_to 'New Supplier', new_supplier_path, class: "btn btn-primary"  %>

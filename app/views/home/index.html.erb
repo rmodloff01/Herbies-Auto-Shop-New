@@ -1,12 +1,12 @@
 <h1> A Basic Homepage </h1>
 
-<%= link_to 'New Car', new_car_path %>
+<%= link_to 'Cars', cars_path %>
 <br>
-<%= link_to 'New Customer', new_customer_path %>
+<%= link_to 'Customers', customers_path %>
 <br>
-<%= link_to 'New Employee', new_employee_path %>
+<%= link_to 'Employees', employees_path %>
 
-<%customer = Customer.find(2) %>
+<%customer = Customer.find(1) %>
 
 <% belongstocust = Car.where(cust_id: customer.cust_id) %>
 <% belongstocust.each do |car| %>
