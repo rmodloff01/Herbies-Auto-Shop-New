@@ -1,15 +1,7 @@
-<h1> A Basic Homepage </h1>
+<h1> Herbie's Auto Shop </h1>
 
 <%= link_to 'Cars', cars_path %>
 <br>
 <%= link_to 'Customers', customers_path %>
 <br>
 <%= link_to 'Employees', employees_path %>
-
-<%customer = Customer.find(1) %>
-
-<% belongstocust = Car.where(cust_id: customer.cust_id) %>
-<% belongstocust.each do |car| %>
-	<%= car.car_model %>
-	<br>
-<% end %>

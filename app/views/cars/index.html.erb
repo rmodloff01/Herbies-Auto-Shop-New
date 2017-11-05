@@ -31,8 +31,9 @@ th, td{
         <td><%= car.cust_id %></td>
         <td><%= car.license_plate %></td>
         <td><%= link_to 'Edit', edit_car_path(car) %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Destroy', @car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
+        <% end %>
 
       </tr>
     <% end %>

@@ -31,7 +31,9 @@ th, td{
         <td><%= customer.cust_addr %></td>
         <td><%= customer.cust_date %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
         <td><%= link_to 'New Car', new_car_path(customer, :cust_id => customer.cust_id) %></td>
         <td><%= link_to 'Show Cars', showcar_customer_path(customer) %> </td>
       </tr>
@@ -41,5 +43,6 @@ th, td{
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
-<%= link_to 'Home', home_index_path, class: "btn btn-primary" %>
+<%= link_to 'New Customer', new_customer_path %>
+<br>
+<%= link_to 'Home', home_index_path %>
