@@ -4,4 +4,6 @@
 <br>
 <%= link_to 'Customers', customers_path %>
 <br>
+<% if current_user.admin? %>
 <%= link_to 'Employees', employees_path %>
+<% end %>
