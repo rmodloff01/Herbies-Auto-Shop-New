@@ -11,37 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label 'Customer ID'%>
-    <%= form.text_field :cust_id, id: :customer_cust_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label 'Customer First Name' %>
+  <div class="form-group">
+    <%= form.label :cust_fname, 'First Name', class: "col-md-2 control-label" %>
     <%= form.text_field :cust_fname, id: :customer_cust_fname %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Customer Last Name' %>
+  <div class="form-group">
+    <%= form.label :cust_lname,'Last Name', class: "col-md-2 control-label"  %>
     <%= form.text_field :cust_lname, id: :customer_cust_lname %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Customer Phone Number' %>
+  <div class="form-group">
+    <%= form.label :cust_phone,'Phone Number', class: "col-md-2 control-label"  %>
     <%= form.text_field :cust_phone, id: :customer_cust_phone %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Customer Address' %>
+  <div class="form-group">
+    <%= form.label :cust_addr,'Address', class: "col-md-2 control-label"  %>
     <%= form.text_field :cust_addr, id: :customer_cust_addr %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Current Date' %>
+  <div class="form-group">
+    <%= form.label :cust_date, 'Date Registered', class: "col-md-2 control-label"  %>
     <%= form.date_select :cust_date, id: :customer_cust_date %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: "btn btn-primary col-md-2" %>
   </div>
 <% end %>

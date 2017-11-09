@@ -6,35 +6,36 @@ th, td{
 
 <p id="notice"><%= notice %></p>
 
-<h1>Customers</h1>
+<h1 style="text-align:center">Customers</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>Cust ID</th>
-      <th>Cust First Name</th>
-      <th>Cust Last Name</th>
-      <th>Cust Phone Number</th>
-      <th>Cust Address</th>
-      <th>Cust Date</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>Address</th>
+      <th>Date</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @customers.each do |customer| %>
-      <tr> 
+      <tr>
         <td><%= customer.cust_id %></td>
         <td><%= customer.cust_fname %></td>
         <td><%= customer.cust_lname %></td>
         <td><%= customer.cust_phone %></td>
         <td><%= customer.cust_addr %></td>
         <td><%= customer.cust_date %></td>
-        <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <% if current_user.admin? %>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
         <td><%= link_to 'New Car', new_car_path(customer, :cust_id => customer.cust_id) %></td>
-        <td><%= link_to 'Show Cars', showcar_customer_path(customer) %> </td> 
+        <td><%= link_to 'Show Cars', showcar_customer_path(customer) %> </td>
       </tr>
     <% end %>
   </tbody>
@@ -42,6 +43,5 @@ th, td{
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
-<br>
-<%= link_to 'Home', home_index_path %>
+<%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
+<%= link_to 'Home', home_index_path, class: "btn btn-primary" %>

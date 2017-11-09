@@ -1,3 +1,4 @@
+
 <%= form_with(model: car, local: true) do |form| %>
   <% if car.errors.any? %>
     <div id="error_explanation">
@@ -10,39 +11,39 @@
       </ul>
     </div>
   <% end %>
-  
-  <div class="field">
-    <%= form.label :car_vin %>
+
+  <div class="form-group">
+    <%= form.label :car_vin, 'VIN',  class: "col-md-2 control-label" %>
     <%= form.text_field :car_vin, id: :car_car_vin %>
   </div>
 
-  <div class="field">
-    <%= form.label :car_model %>
-    <%= form.text_field :car_model, id: :car_car_model %>
-  </div>
-
-  <div class="field">
-    <%= form.label :car_make %>
+  <div class="form-group">
+    <%= form.label :car_make, 'Make',  class: "col-md-2 control-label" %>
     <%= form.text_field :car_make, id: :car_car_make %>
   </div>
 
-  <div class="field">
-    <%= form.label :car_year %>
+  <div class="form-group">
+    <%= form.label :car_model, "Model", class: "col-md-2 control-label" %>
+    <%= form.text_field :car_model, id: :car_car_model %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :car_year, 'Year', class: "col-md-2 control-label" %>
     <%= form.text_field :car_year, id: :car_car_year %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <% id = params[:cust_id] %>
-    <%= form.label :cust_id %>
+    <%= form.label :cust_id, 'Customer ID', class: "col-md-2 control-label" %>
     <%= form.text_field :cust_id, id: :car_cust_id, value: id %>
   </div>
 
-  <div class="field">
-    <%= form.label :license_plate %>
+  <div class="form-group">
+    <%= form.label :license_plate, 'License Plate', class: "col-md-2 control-label" %>
     <%= form.text_field :license_plate, id: :car_license_plate %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit 'Submit',  class: "btn btn-primary col-md-2" %>
   </div>
 <% end %>

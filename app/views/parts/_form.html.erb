@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :part_id %>
+  <div class="form-group">
+    <%= form.label :part_id, 'ID',  class: "col-md-2 control-label" %>
     <%= form.text_field :part_id, id: :part_part_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :part_name %>
+  <div class="form-group">
+    <%= form.label :part_name, 'Name', class: "col-md-2 control-label" %>
     <%= form.text_field :part_name, id: :part_part_name %>
   </div>
 
-  <div class="field">
-    <%= form.label :part_cost %>
+  <div class="form-group">
+    <%= form.label :part_cost, 'Cost', class: "col-md-2 control-label" %>
     <%= form.text_field :part_cost, id: :part_part_cost %>
   </div>
 
-  <div class="field">
-    <%= form.label :part_num_in_inventory %>
+  <div class="form-group">
+    <%= form.label :part_num_in_inventory, 'Number in Inventory', class: "col-md-2 control-label" %>
     <%= form.text_field :part_num_in_inventory, id: :part_part_num_in_inventory %>
   </div>
 
-  <div class="field">
-    <%= form.label :supp_id %>
+  <div class="form-group">
+    <%= form.label :supp_id, 'Supplier', class: "col-md-2 control-label" %>
     <%= form.text_field :supp_id, id: :part_supp_id %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: "btn btn-primary col-md-2" %>
   </div>
 <% end %>

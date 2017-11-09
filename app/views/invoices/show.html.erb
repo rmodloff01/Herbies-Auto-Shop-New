@@ -45,5 +45,5 @@
   <%= @invoice.tot_cost %>
 </p>
 <% @customer = Customer.find(@invoice.cust_id) %>
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', showcar_customer_path(@customer) %>
+<%= link_to 'Edit', edit_invoice_path(@invoice), class: "btn btn-default" %>
+<%= link_to 'Back', showcar_customer_path(@customer), class: "btn btn-default"%>

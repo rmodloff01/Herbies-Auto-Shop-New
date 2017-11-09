@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Parts</h1>
+<h1 style="text-align:center">Parts</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
-      <th>Part</th>
-      <th>Part name</th>
-      <th>Part cost</th>
-      <th>Part num in inventory</th>
-      <th>Supp</th>
+      <th>Part ID</th>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Number in inventory</th>
+      <th>Supplier</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,12 +17,11 @@
   <tbody>
     <% @parts.each do |part| %>
       <tr>
-        <td><%= part.part %></td>
+        <td><%= part.part_id %></td>
         <td><%= part.part_name %></td>
         <td><%= part.part_cost %></td>
         <td><%= part.part_num_in_inventory %></td>
-        <td><%= part.supp %></td>
-        <td><%= link_to 'Show', part %></td>
+        <td><%= part.supp_id %></td>
         <td><%= link_to 'Edit', edit_part_path(part) %></td>
         <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -32,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Part', new_part_path %>
+<%= link_to 'New Part', new_part_path, class: "btn btn-primary" %>

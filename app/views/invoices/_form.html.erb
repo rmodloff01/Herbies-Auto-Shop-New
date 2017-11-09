@@ -11,59 +11,54 @@
     </div>
   <% end %>
 
-   <div class="field">
-    <%= form.label 'Invoice ID' %>
-    <%= form.text_field :inv_id, id: :inv_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label 'Cost Of Labor' %>
+  <div class="form-group">
+    <%= form.label :cost_of_labor, 'Cost Of Labor', class: "col-md-2 control-label" %>
     <%= form.text_field :cost_of_labor, id: :invoice_cost_of_labor %>
   </div>
 
-  <div class="field">
-    <%= form.label 'VIN' %>
+  <div class="form-group">
+    <%= form.label :car_vin, 'VIN', class: "col-md-2 control-label" %>
     <% vin = params[:car_vin] %>
     <%= form.text_field :car_vin, id: :invoice_car_vin, value: vin %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Customer ID' %>
+  <div class="form-group">
+    <%= form.label :cust_id, 'Customer ID', class: "col-md-2 control-label" %>
     <% id = params[:cust_id] %>
     <%= form.text_field :cust_id, id: :invoice_cust_id, value: id %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Employee ID' %>
+  <div class="form-group">
+    <%= form.label :emp_id, 'Employee ID', class: "col-md-2 control-label" %>
     <%= form.text_field :emp_id, id: :invoice_emp_id %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Invoice Description' %>
+  <div class="form-group">
+    <%= form.label :inv_desc, 'Work Done', class: "col-md-2 control-label" %>
     <%= form.text_field :inv_desc, id: :invoice_inv_desc %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Problem Description' %>
+  <div class="form-group">
+    <%= form.label :prob_desc, 'Problem Description', class: "col-md-2 control-label" %>
     <%= form.text_field :prob_desc, id: :invoice_prob_desc %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Engine Code' %>
+  <div class="form-group">
+    <%= form.label :eng_code, 'Engine Code', class: "col-md-2 control-label" %>
     <%= form.text_field :eng_code, id: :invoice_eng_code %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Invoice Date' %>
+  <div class="form-group">
+    <%= form.label :inv_date, 'Invoice Date', class: "col-md-2 control-label" %>
     <%= form.date_select :inv_date, id: :invoice_inv_date %>
   </div>
 
-  <div class="field">
-    <%= form.label 'Total Cost' %>
+  <div class="form-group">
+    <%= form.label :tot_cost, 'Total Cost', class: "col-md-2 control-label" %>
     <%= form.text_field :tot_cost, id: :invoice_tot_cost %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit',  class: "btn btn-primary col-md-2"%>
   </div>
 <% end %>
