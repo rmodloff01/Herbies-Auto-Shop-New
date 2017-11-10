@@ -12,6 +12,8 @@
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <nav>
+          <img class="navbar-left" style="margin-left: -115px" src="Inkedherbie.jpg" alt="Herbie" height="50" width="188">
+          <span class="navbar-brand" style="color:white; margin-left: 5px; font-size: 30px; font-family: 'Comic Sans MS'">Herbie's Auto Shop</span>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",  home_index_path  %></li>
             <% if user_signed_in? %>
@@ -41,6 +43,19 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
+
+      <div id="sidebar-wrapper">
+        <ul id="sidebar_menu" class="sidebar-nav">
+           <li class="sidebar-brand"><span style="color: #ffffff">Navigation</span></li>
+        </ul>
+        <ul class="sidebar-nav" id="sidebar">
+          <li><a href='/customers'>Customers<span class="sub_icon glyphicon glyphicon-user"></span></a></li>
+          <li><a href='/cars'>Cars<span class="sub_icon glyphicon glyphicon-cog"></span></a></li>
+          <li><a href='/invoices'>Invoices<span class="sub_icon glyphicon glyphicon-duplicate"></span></a></li>
+          <li><a href='/parts'>Parts<span class="sub_icon glyphicon glyphicon-wrench"></span></a></li>
+          <li><a href='/suppliers'>Suppliers<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+        </ul>
+      </div>
 
       <%= yield %>
     </div>
