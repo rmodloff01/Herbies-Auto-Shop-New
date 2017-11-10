@@ -4,7 +4,11 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @customers = if params[:cust_phone]
+      Customer.where('cust_phone LIKE ?' , "%#{params[:cust_phone]}%")
+    else
+      Customer.all
+    end
   end
 
   # GET /customers/1
@@ -14,7 +18,10 @@ class CustomersController < ApplicationController
   # GET /customers/1/showcar
   def showcar
   end
-  
+    
+
+
+
   # GET /customers/new
   def new
     @customer = Customer.new

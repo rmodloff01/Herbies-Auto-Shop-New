@@ -10,6 +10,13 @@
       </ul>
     </div>
   <% end %>
+ 
+  <div class="form-group">
+    <% id = Customer.all %>
+    <%= form.label :cust_id, 'Customer ID', class: "col-md-2 control-label" %>
+    <%= form.text_field :cust_id, id: :customer_cust_id, value: id.count + 1, :readonly => true %>
+  </div>
+
 
   <div class="form-group">
     <%= form.label :cust_fname, 'First Name', class: "col-md-2 control-label" %>
