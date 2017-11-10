@@ -54,5 +54,5 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-script-source', '1.8.0'
 gem 'devise'
 gem 'rails_admin'
-
+gem 'bcrypt', platforms: :ruby
 # look into clerance gem

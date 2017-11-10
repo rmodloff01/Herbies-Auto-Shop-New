@@ -8,7 +8,15 @@ th, td{
 
 <h1 style="text-align:center">Customers</h1>
 
+  <%= form_tag customers_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :cust_phone %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
 <table class="table table-striped table-bordered">
+
   <thead>
     <tr>
       <th>ID</th>
