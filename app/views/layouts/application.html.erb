@@ -36,13 +36,6 @@
     </header>
 
     <div class="container">
-
-    
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
-
-      <% if user_signed_in? %>
       <div id="sidebar-wrapper">
         <ul id="sidebar_menu" class="sidebar-nav">
            <li class="sidebar-brand"><span style="color: #ffffff">Navigation</span></li>
@@ -55,7 +48,6 @@
           <li><a href='/suppliers'>Suppliers<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
         </ul>
       </div>
-      <% end %>
 
       <%= yield %>
     </div>
