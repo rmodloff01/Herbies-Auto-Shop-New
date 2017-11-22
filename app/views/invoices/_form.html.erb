@@ -17,9 +17,9 @@
   </div>
 
   <div class="form-group">
-    <%= form.label :car_vin, 'VIN', class: "col-md-2 control-label" %>
-    <% vin = params[:car_vin] %>
-    <%= form.text_field :car_vin, id: :invoice_car_vin, value: vin %>
+    <%= form.label :license_plate, 'License Plate', class: "col-md-2 control-label" %>
+    <% plate = params[:license_plate] %>
+    <%= form.text_field :license_plate, id: :invoice_license_plate, value: plate %>
   </div>
 
   <div class="form-group">
@@ -60,5 +60,9 @@
 
   <div class="actions">
     <%= form.submit 'Submit',  class: "btn btn-primary col-md-2"%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Add Part',  class: "btn btn-primary col-md-2"%>
   </div>
 <% end %>

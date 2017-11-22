@@ -10,5 +10,15 @@
   <%= @supplier.supp_address %>
 </p>
 
+<p>
+  <strong>Supp phone:</strong>
+  <%= @supplier.supp_phone %>
+</p>
+
+<p>
+  <strong>Supp email:</strong>
+  <%= @supplier.supp_email %>
+</p>
+
 <%= link_to 'Edit', edit_supplier_path(@supplier), class: "btn btn-default" %>
 <%= link_to 'Back', suppliers_path, class: "btn btn-default" %>

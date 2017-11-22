@@ -12,7 +12,7 @@ th, td{
   <thead>
     <tr>
       <th>Cost of labor</th>
-      <th>Vin #</th>
+      <th>License Plate</th>
       <th>Customer ID</th>
       <th>Employee ID</th>
       <th>Work Done</th>
@@ -28,7 +28,7 @@ th, td{
     <% @invoices.each do |invoice| %>
       <tr>
         <td><%= invoice.cost_of_labor %></td>
-        <td><%= invoice.car_vin %></td>
+        <td><%= invoice.license_plate %></td>
         <td><%= invoice.cust_id %></td>
         <td><%= invoice.emp_id %></td>
         <td><%= invoice.inv_desc %></td>

@@ -26,7 +26,7 @@ USE `autoshop_development` ;
 DROP TABLE IF EXISTS `autoshop_development`.`customers` ;
 
 CREATE TABLE IF NOT EXISTS `autoshop_development`.`customers` (
-  `cust_id` INT NOT NULL,
+  `cust_id` INT NOT NULL AUTO_INCREMENT,
   `cust_fname` VARCHAR(15) NOT NULL,
   `cust_lname` VARCHAR(15) NOT NULL,
   `cust_phone` VARCHAR(13) NOT NULL,
@@ -46,10 +46,12 @@ CREATE TABLE IF NOT EXISTS `autoshop_development`.`cars` (
   `car_model` VARCHAR(10) NOT NULL,
   `car_make` VARCHAR(20) NOT NULL,
   `car_year` VARCHAR(4) NOT NULL,
-  `car_vin` VARCHAR(17) NOT NULL,
+  `car_vin` VARCHAR(17) DEFAULT NULL,
   `cust_id` INT NOT NULL,
   `license_plate` VARCHAR(9) NOT NULL,
-  PRIMARY KEY (`car_vin`))
+  `state` CHAR(2) NOT NULL,
+  `in_shop` TINYINT(1),
+  PRIMARY KEY (`license_plate`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -76,7 +78,7 @@ DROP TABLE IF EXISTS `autoshop_development`.`invoices` ;
 
 CREATE TABLE IF NOT EXISTS `autoshop_development`.`invoices` (
   `cost_of_labor` DECIMAL(6,2) NULL DEFAULT NULL,
-  `car_vin` VARCHAR(17) NOT NULL,
+  `license_plate` VARCHAR(8) NOT NULL,
   `cust_id` INT NOT NULL,
   `inv_id` INT NOT NULL,
   `emp_id` VARCHAR(6) NOT NULL,
@@ -99,6 +101,8 @@ CREATE TABLE IF NOT EXISTS `autoshop_development`.`suppliers` (
   `supp_id` INT NOT NULL,
   `supp_name` VARCHAR(45) NOT NULL,
   `supp_address` VARCHAR(55) NOT NULL,
+  `supp_phone` VARCHAR(13),
+  `supp_email` VARCHAR(35),
   PRIMARY KEY (`supp_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -112,8 +116,7 @@ DROP TABLE IF EXISTS `autoshop_development`.`parts` ;
 CREATE TABLE IF NOT EXISTS `autoshop_development`.`parts` (
   `part_id` INT NOT NULL,
   `part_name` VARCHAR(20) NOT NULL,
-  `part_cost` DECIMAL(5,2) NOT NULL,
-  `part_num_in_inventory` INT NULL DEFAULT NULL,
+  `part_cost` DECIMAL(6,2) NOT NULL,
   `supp_id` INT NOT NULL,
   PRIMARY KEY (`part_id`))
 ENGINE = InnoDB
