@@ -25,10 +25,10 @@ th, td{
   </thead>
 
   <tbody>
-  	<% @invoices = Invoice.where(car_vin: @car.car_vin) %>
+  	<% @invoices = Invoice.where(license_plate: @car.license_plate) %>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.car_vin %></td>
+        <td><%= invoice.license_plate %></td>
         <td><%= invoice.cost_of_labor %></td>
         <td><%= invoice.cust_id %></td>
         <td><%= invoice.emp_id %></td>
@@ -37,7 +37,7 @@ th, td{
         <td><%= invoice.eng_code %></td>
         <td><%= invoice.inv_date %></td>
         <td><%= invoice.tot_cost %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice, cust_id: invoice.cust_id, car_vin: invoice.car_vin) %></td>
+        <td><%= link_to 'Edit', edit_invoice_path(invoice, cust_id: invoice.cust_id, license_plate: invoice.license_plate) %></td>
         <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
