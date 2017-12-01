@@ -30,6 +30,9 @@
           <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>
           <% end %>
+          <% if current_user.admin? %>
+          - Admin
+          <% end %>
           </p>
         </nav>
       </div>
