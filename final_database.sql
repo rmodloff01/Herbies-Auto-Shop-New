@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `autoshop_development`.`parts` (
   `part_id` INT NOT NULL,
   `part_name` VARCHAR(20) NOT NULL,
   `part_cost` DECIMAL(6,2) NOT NULL,
+  `part_num_in_inventory` INT NOT NULL,
   `supp_id` INT NOT NULL,
   PRIMARY KEY (`part_id`))
 ENGINE = InnoDB
