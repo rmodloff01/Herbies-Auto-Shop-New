@@ -19,6 +19,14 @@ body {
   margin-left: 180px;
 }
 
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
+}
+
 .row{
     margin-left:0px;
     margin-right:0px;
