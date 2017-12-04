@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20171031235834) do
     t.string "cust_lname", limit: 15, null: false
     t.string "cust_phone", limit: 13, null: false
     t.string "cust_addr", limit: 30, null: false
+    t.string "city", limit: 30, null: false
+    t.string "state", limit: 2, null: false
     t.datetime "cust_date", null: false
   end
 

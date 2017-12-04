@@ -2,7 +2,6 @@
 
 <%= render 'form', invoice: @invoice %>
 
-
 <% cust = params[:cust_id] %>
 <%customer = Customer.find(cust) %>
 <table class="table table-striped table-bordered">
@@ -27,11 +26,12 @@
           <td><%= part.part_num_in_inventory %></td>
           <td><%= part.supp_id %></td>
           <td>
-          <%= form_with(model: included_part) do |form| %>
-              <%= form.hidden_field :part_id, :value => part.part_id %>
-              <%= form.hidden_field :inv_id, :value => @invoice_inv_id %>
-          <%= form.submit 'Add Part', class: "btn btn-default" %>
-          <% end %>
+            <form action="/included_parts" method="post">
+              <input type="hidden" name='included_part[part_id]' value='<%= part.part_id %>'>
+              <input type="hidden" name='included_part[inv_id]' value='<%=  @invoice.inv_id %>'>
+              <!-- other inputs here -->
+              <input type="submit" value="Add Part" class="btn btn-default">
+            </form>
           </td>
         </tr>
       <% end %>
