@@ -19,7 +19,7 @@
       <tr>
         <td><%= part.part_id %></td>
         <td><%= part.part_name %></td>
-        <td><%= part.part_cost %></td>
+        <td><%= number_to_currency(part.part_cost) %></td>
         <td><%= part.part_num_in_inventory %></td>
         <td><%= part.supp_id %></td>
         <td><%= link_to 'Edit', edit_part_path(part) %></td>
