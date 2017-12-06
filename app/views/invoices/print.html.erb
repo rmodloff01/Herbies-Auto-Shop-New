@@ -62,7 +62,7 @@
                                 <% @parts.each do |part| %>
                                   <tr>
                                       <td><%= part[1] %></td>
-                                      <td class="text-right"><%= part[2] %></td>
+                                      <td class="text-right"><%= number_to_currency(part[2]) %></td>
                                       <% total = total + part[2] %>
                                   </tr>
                                 <% end %>
