@@ -13,13 +13,14 @@
 ActiveRecord::Schema.define(version: 20171031235834) do
 
   create_table "cars", primary_key: "license_plate", id: :string, limit: 9, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "car_vin", limit: 17, null: false
-    t.string "car_model", limit: 10, null: false
+    t.string "car_model", limit: 40, null: false
     t.string "car_make", limit: 20, null: false
     t.string "car_year", limit: 4, null: false
+    t.string "car_vin", limit: 17
     t.integer "cust_id", null: false
     t.string "state", limit: 2, null: false
     t.boolean "in_shop", default: true
+    t.index ["cust_id"], name: "cust_id"
   end
 
   create_table "customers", primary_key: "cust_id", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -28,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171031235834) do
     t.string "cust_phone", limit: 13, null: false
     t.string "cust_addr", limit: 30, null: false
     t.string "city", limit: 30, null: false
-    t.string "state", limit: 2, null: false
+    t.string "state", limit: 20, null: false
     t.datetime "cust_date", null: false
   end
 
@@ -41,10 +42,12 @@ ActiveRecord::Schema.define(version: 20171031235834) do
   create_table "included_parts", primary_key: ["part_id", "inv_id"], force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "part_id", null: false
     t.integer "inv_id", null: false
+    t.index ["inv_id"], name: "inv_id"
   end
 
-  create_table "invoices", primary_key: "inv_id", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "invoices", primary_key: "inv_id", id: :integer, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.decimal "cost_of_labor", precision: 6, scale: 2
+    t.string "license_plate", limit: 8, null: false
     t.integer "cust_id", null: false
     t.string "emp_id", limit: 6, null: false
     t.string "inv_desc"
@@ -52,21 +55,24 @@ ActiveRecord::Schema.define(version: 20171031235834) do
     t.string "eng_code", limit: 45
     t.date "inv_date", null: false
     t.decimal "tot_cost", precision: 6, scale: 2
-    t.string "license_plate", limit: 8
+    t.index ["cust_id"], name: "cust_id"
+    t.index ["emp_id"], name: "emp_id"
+    t.index ["license_plate"], name: "license_plate"
   end
 
   create_table "parts", primary_key: "part_id", id: :integer, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "part_name", limit: 20, null: false
-    t.decimal "part_cost", precision: 5, scale: 2, null: false
-    t.integer "part_num_in_inventory"
-    t.integer "supp_id", null: false
+    t.decimal "part_cost", precision: 6, scale: 2, null: false
+    t.integer "part_num_in_inventory", null: false
+    t.integer "supp_id"
+    t.index ["supp_id"], name: "supp_id"
   end
 
-  create_table "suppliers", primary_key: "supp_id", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "suppliers", primary_key: "supp_id", id: :integer, default: nil, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "supp_name", limit: 45, null: false
     t.string "supp_address", limit: 55, null: false
     t.string "supp_phone", limit: 13
-    t.string "supp_email", limit: 33
+    t.string "supp_email", limit: 35
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -87,4 +93,11 @@ ActiveRecord::Schema.define(version: 20171031235834) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cars", "customers", column: "cust_id", primary_key: "cust_id", name: "cars_ibfk_1"
+  add_foreign_key "included_parts", "invoices", column: "inv_id", primary_key: "inv_id", name: "included_parts_ibfk_2"
+  add_foreign_key "included_parts", "parts", primary_key: "part_id", name: "included_parts_ibfk_1"
+  add_foreign_key "invoices", "cars", column: "license_plate", primary_key: "license_plate", name: "invoices_ibfk_3"
+  add_foreign_key "invoices", "customers", column: "cust_id", primary_key: "cust_id", name: "invoices_ibfk_1"
+  add_foreign_key "invoices", "employees", column: "emp_id", primary_key: "emp_id", name: "invoices_ibfk_2"
+  add_foreign_key "parts", "suppliers", column: "supp_id", primary_key: "supp_id", name: "parts_ibfk_1"
 end

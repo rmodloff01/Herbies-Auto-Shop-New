@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `autoshop_development`.`invoices` (
   `cost_of_labor` DECIMAL(6,2) NULL DEFAULT NULL,
   `license_plate` VARCHAR(8) NOT NULL,
   `cust_id` INT NOT NULL,
-  `inv_id` INT NOT NULL PRIMARY KEY,
+  `inv_id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `emp_id` VARCHAR(6) NOT NULL,
   `inv_desc` VARCHAR(255) NULL DEFAULT NULL,
   `prob_desc` VARCHAR(255) NOT NULL,
@@ -105,7 +105,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `autoshop_development`.`suppliers` ;
 
 CREATE TABLE IF NOT EXISTS `autoshop_development`.`suppliers` (
-  `supp_id` INT NOT NULL,
+  `supp_id` INT NOT NULL AUTO_INCREMENT,
   `supp_name` VARCHAR(45) NOT NULL,
   `supp_address` VARCHAR(55) NOT NULL,
   `supp_phone` VARCHAR(13),

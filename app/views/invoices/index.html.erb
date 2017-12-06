@@ -27,7 +27,7 @@ th, td{
   <tbody>
     <% @invoices.each do |invoice| %>
       <tr>
-        <td><%= invoice.cost_of_labor %></td>
+        <td><%= number_to_currency(invoice.cost_of_labor) %></td>
         <td><%= invoice.license_plate %></td>
         <td><%= invoice.cust_id %></td>
         <td><%= invoice.emp_id %></td>
@@ -35,7 +35,7 @@ th, td{
         <td><%= invoice.prob_desc %></td>
         <td><%= invoice.eng_code %></td>
         <td><%= invoice.inv_date %></td>
-        <td><%= invoice.tot_cost %></td>
+        <td><%= number_to_currency(invoice.tot_cost) %></td>
         <td><%= link_to 'Edit', edit_invoice_path(invoice, cust_id: invoice.cust_id, license_plate: invoice.license_plate) %></td>
         <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Print', print_invoice_path(invoice, inv_id: invoice.inv_id) %></td>

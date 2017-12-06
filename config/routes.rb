@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   resources :employees
   resources :cars
   resources :customers
-  resources :home
   resources :customers do
   member do
     get :showcar
