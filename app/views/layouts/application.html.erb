@@ -9,11 +9,13 @@
   </head>
 
   <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-fixed-top navbar-inverse no-print">
       <div class="container">
         <nav>
+          <img class="navbar-left" style="margin-left: -115px" src="/Inkedherbie.jpg" alt="Herbie" height="50" width="188">
+          <span class="navbar-brand" style="color:white; margin-left: 5px; font-size: 30px; font-family: 'Comic Sans MS'">Herbie's Auto Shop</span>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",  home_index_path  %></li>
+            <li><%= link_to "Home",  customers_path  %></li>
             <% if user_signed_in? %>
             <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
             <li><%= link_to "Log Out", destroy_user_session_path, method: 'delete' %></li>
@@ -27,19 +29,32 @@
           <p class="navbar-text pull-right">
           <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>
+          <% if current_user.admin? %>
+          - Admin
+          <% end %>
           <% end %>
           </p>
         </nav>
       </div>
     </header>
 
+    <% if user_signed_in? %>
     <div class="container">
-
-      <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+      <div id="sidebar-wrapper" class= "no-print">
+        <ul id="sidebar_menu" class="sidebar-nav">
+           <li class="sidebar-brand"><span style="color: #ffffff">Navigation</span></li>
+        </ul>
+        <ul class="sidebar-nav" id="sidebar">
+          <li><a href='/customers'>Customers<span class="sub_icon glyphicon glyphicon-user"></span></a></li>
+          <li><a href='/cars'>Cars<span class="sub_icon glyphicon glyphicon-cog"></span></a></li>
+          <li><a href='/invoices'>Invoices<span class="sub_icon glyphicon glyphicon-duplicate"></span></a></li>
+          <li><a href='/parts'>Parts<span class="sub_icon glyphicon glyphicon-wrench"></span></a></li>
+          <li><a href='/suppliers'>Suppliers<span class="sub_icon glyphicon glyphicon-link"></span></a></li>
+          <% if current_user.admin? %>
+          <li><a href='/employees'>Employees<span class="sub_icon glyphicon glyphicon-user"></span></a></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
 
       <%= yield %>

@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :emp_id %>
+  <div class="form-group">
+    <%= form.label :emp_id, 'ID#', class: "col-md-2 control-label" %>
     <%= form.text_field :emp_id, id: :employee_emp_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :emp_fname %>
+  <div class="form-group">
+    <%= form.label :emp_fname, 'Employee First Name', class: "col-md-2 control-label" %>
     <%= form.text_field :emp_fname, id: :employee_emp_fname %>
   </div>
 
-  <div class="field">
-    <%= form.label :emp_lname %>
+  <div class="form-group">
+    <%= form.label :emp_lname, 'Last Name', class: "col-md-2 control-label" %>
     <%= form.text_field :emp_lname, id: :employee_emp_lname %>
   </div>
 
-  <div class="field">
-    <%= form.label :emp_wage %>
+  <div class="form-group">
+    <%= form.label :emp_wage, 'Wage', class: "col-md-2 control-label" %>
     <%= form.text_field :emp_wage, id: :employee_emp_wage %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: "btn btn-primary col-md-2" %>
   </div>
 <% end %>

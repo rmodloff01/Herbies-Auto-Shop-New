@@ -25,7 +25,7 @@ th, td{
         <td><%= employee.emp_id %></td>
         <td><%= employee.emp_fname %></td>
         <td><%= employee.emp_lname %></td>
-        <td><%= employee.emp_wage %></td>
+        <td><%= number_to_currency(employee.emp_wage) %></td>
         <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
         <% if current_user.admin? %>
         <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -38,4 +38,3 @@ th, td{
 <br>
 
 <%= link_to 'New Employee', new_employee_path, class: "btn btn-primary" %>
-<%= link_to 'Home', home_index_path, class: "btn btn-primary" %>

@@ -1,0 +1,126 @@
+<% inv = params[:inv_id] %>
+<%invoice = Invoice.find(inv) %>
+<% customer = Customer.find(invoice.cust_id) %>
+<% car = Car.find(invoice.license_plate) %>
+<% @parts = ActiveRecord::Base.connection.execute("Select * from parts where part_id in (select part_id from included_parts where inv_id = #{invoice.inv_id})") %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-center">
+                <i class="fa fa-search-plus pull-left icon"></i>
+                <h2>Invoice #<%= invoice.inv_id %></h2>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-xs-6 col-md-6">
+                    <div class="panel panel-default height">
+                        <div class="panel-heading">Customer Information</div>
+                        <div class="panel-body">
+                            <strong><%= customer.cust_fname %> <%= customer.cust_lname %>:</strong><br>
+                            <%= customer.cust_addr %> <br>
+                            <%= customer.city%><br>
+                            <%= customer.state %><br>
+                            <strong><%= customer.cust_phone %></strong><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-6">
+                    <div class="panel panel-default height">
+                        <div class="panel-heading">Car Information</div>
+                        <div class="panel-body">
+                            <strong>Make/Model:</strong> <%= car.car_make %>  <%= car.car_model %><br>
+                            <strong>Year:</strong> <%= car.car_year %>  <br>
+                            <strong>License Plate:</strong> <%= car.license_plate %> <br>
+                            <strong>Color:</strong> Blue <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default height">
+                        <div class="panel-heading">Summary:</div>
+                        <div class="panel-body">
+                            <strong>Issue:</strong> <%= invoice.prob_desc %><br>
+                            <strong>Engine Code:</strong> <%= invoice.eng_code %>  <br>
+                            <strong>Work Done:</strong> <%= invoice.inv_desc %> <br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default height">
+                        <div class="panel-heading">Costs:</div>
+                        <div class="panel-body">
+                          <table class="table table-condensed">
+                              <thead>
+                                  <tr>
+                                      <td><strong>Part Name</strong></td>
+                                      <td class="text-right"><strong>Part Price</strong></td>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <% total = 0 %>
+                                <% @parts.each do |part| %>
+                                  <tr>
+                                      <td><%= part[1] %></td>
+                                      <td class="text-right"><%= number_to_currency(part[2]) %></td>
+                                      <% total = total + part[2] %>
+                                  </tr>
+                                <% end %>
+                                  <tr>
+                                      <td class="highrow"></td>
+                                      <td class="highrow"></td>
+                                      <td class="highrow text-center"><strong>Parts Total</strong></td>
+                                      <td class="highrow text-right"> <%= number_to_currency(total) %> </td>
+                                  </tr>
+                                  <tr>
+                                      <td class="emptyrow"></td>
+                                      <td class="emptyrow"></td>
+                                      <td class="emptyrow text-center"><strong>Labor</strong></td>
+                                      <td class="emptyrow text-right"><%= number_to_currency(invoice.cost_of_labor) %></td>
+                                  </tr>
+                                  <tr>
+                                      <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
+                                      <td class="emptyrow"></td>
+                                      <td class="emptyrow text-center"><strong>Total</strong></td>
+                                      <td class="emptyrow text-right"><%= number_to_currency(total + invoice.cost_of_labor) %></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<style>
+.height {
+    min-height: 200px;
+}
+
+.icon {
+    font-size: 47px;
+    color: #5CB85C;
+}
+
+.iconbig {
+    font-size: 77px;
+    color: #5CB85C;
+}
+
+.table > tbody > tr > .emptyrow {
+    border-top: none;
+}
+
+.table > thead > tr > .emptyrow {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .highrow {
+    border-top: 3px solid;
+}
+</style>

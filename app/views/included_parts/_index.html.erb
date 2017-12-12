@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<table>
+  <tbody>
+    <% included_parts.each do |included| %>
+      <tr>
+        <td><%= render 'included_parts/form', included_part: @included_part %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

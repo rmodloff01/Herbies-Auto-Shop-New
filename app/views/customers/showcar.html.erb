@@ -29,8 +29,8 @@ th, td{
         <td><%= car.car_year %></td>
         <td><%= @customer.cust_fname%> <%= @customer.cust_lname%></td>
         <td><%= car.license_plate %></td>
-        <td><%= link_to 'Create New Invoice', new_invoice_path(@invoice, :cust_id => car.cust_id, :car_vin => car.car_vin) %>
-        <td><%= link_to 'View Invoices', showinvoice_car_path(:id=> car.car_vin) %></td>
+        <td><%= link_to 'Create New Invoice', new_invoice_path(@invoice, :cust_id => car.cust_id, :license_plate => car.license_plate) %>
+        <td><%= link_to 'View Invoices', showinvoice_car_path(:id=> car.license_plate) %></td>
       </tr>
     <% end %>
   </tbody>
