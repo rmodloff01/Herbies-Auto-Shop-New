@@ -21,10 +21,6 @@ class InvoicesController < ApplicationController
   def edit
   end
 
-  def print
-    @invoice = Invoice.find(params[:inv_id])
-  end
-
   # POST /invoices
   # POST /invoices.json
   def create
@@ -71,10 +67,8 @@ class InvoicesController < ApplicationController
       @invoice = Invoice.find(params[:id])
     end
 
-
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:inv_id, :cost_of_labor, :license_plate, :cust_id, :emp_id, :inv_desc, :prob_desc, :eng_code, :inv_date, :tot_cost)
+      params.require(:invoice).permit(:inv_id, :cost_of_labor, :car_vin, :cust_id, :emp_id, :inv_desc, :prob_desc, :eng_code, :inv_date, :tot_cost)
     end
 end

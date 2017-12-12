@@ -28,7 +28,7 @@ class IncludedPartsController < ApplicationController
 
     respond_to do |format|
       if @included_part.save
-        format.html { redirect_back(fallback_location: invoices_url) }
+        format.html { redirect_to @included_part, notice: 'Included part was successfully created.' }
         format.json { render :show, status: :created, location: @included_part }
       else
         format.html { render :new }

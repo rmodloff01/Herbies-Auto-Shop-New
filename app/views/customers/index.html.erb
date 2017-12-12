@@ -4,6 +4,8 @@ th, td{
 }
 </style>
 
+<p id="notice"><%= notice %></p>
+
 <h1 style="text-align:center">Customers</h1>
 
   <%= form_tag customers_path, :method => 'get' do %>
@@ -50,3 +52,4 @@ th, td{
 <br>
 
 <%= link_to 'New Customer', new_customer_path, class: "btn btn-primary" %>
+<%= link_to 'Home', home_index_path, class: "btn btn-primary" %>
